@@ -61,6 +61,7 @@ fun TipTimeApp() {
             onValueChange = {newValue->
             amountInput = newValue
         })
+        Spacer(Modifier.height(24.dp))
         Text(
             text = stringResource(R.string.tip_amount, tip),
             modifier = Modifier.align(Alignment.CenterHorizontally),
