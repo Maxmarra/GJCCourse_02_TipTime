@@ -81,7 +81,7 @@ fun TipTimeScreen() {
         )
         EditNumberField(
             value = tipInput,
-            onValueChange = {tipInput = it},
+            onValueChange = { tipInput = it },
             labelId = R.string.how_was_the_service,
             keyboardOptions = KeyboardOptions.Default.copy(
                 keyboardType = KeyboardType.Number,
@@ -99,7 +99,7 @@ fun TipTimeScreen() {
             fontWeight = FontWeight.Bold
         )
         Spacer(Modifier.height(24.dp))
-        RoundTheTipRow(roundUp = roundUp, onRoundUpChanged = {roundUp = it} )
+        RoundTheTipRow(roundUp = roundUp, onRoundUpChanged = { roundUp = it })
     }
 }
 
@@ -109,12 +109,9 @@ fun EditNumberField(
     onValueChange: (String) -> Unit,
     @StringRes labelId: Int,
     keyboardOptions: KeyboardOptions,
-    keyboardActions: KeyboardActions,
-    modifier: Modifier = Modifier
+    keyboardActions: KeyboardActions
 
 ) {
-
-
     TextField(
         value = value,
         onValueChange = onValueChange,
@@ -142,23 +139,25 @@ fun RoundTheTipRow(
     ) {
         Text(text = stringResource(R.string.round_up_tip))
         Switch(
-            colors = SwitchDefaults.colors(
-                uncheckedThumbColor = Color.DarkGray),
+
             checked = roundUp,
             onCheckedChange = onRoundUpChanged,
             modifier = modifier
                 .fillMaxWidth()
-                .wrapContentWidth(Alignment.End)
+                .wrapContentWidth(Alignment.End),
+            colors = SwitchDefaults.colors(
+                uncheckedThumbColor = Color.DarkGray
+            )
 
         )
     }
 }
 
-private fun calculateTip(amount: Double, tipPercent: Double, roundUp: Boolean) : String {
+private fun calculateTip(amount: Double, tipPercent: Double, roundUp: Boolean): String {
     var tip = tipPercent / 100 * amount
     if (roundUp)
         tip = kotlin.math.ceil(tip)
-    return  NumberFormat.getCurrencyInstance().format(tip)
+    return NumberFormat.getCurrencyInstance().format(tip)
 }
 
 @Preview(showBackground = true)
