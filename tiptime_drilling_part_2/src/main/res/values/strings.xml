@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">tiptime_drilling_part_2</string>
+    <string name="caluculate_tip">Посчитать чаевые</string>
+    <string name="bill_amount">Сумма чека</string>
+    <string name="percent_amount"> % чаевых</string>
+    <string name="resulting_tip">Итого чаевые: %s</string>
+    <string name="round_up">Округлить?</string>
+</resources>
