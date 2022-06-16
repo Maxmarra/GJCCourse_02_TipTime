@@ -14,4 +14,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Tip Time"
 include ':app'
-include ':tt_part_1_1'
